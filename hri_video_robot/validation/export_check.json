@@ -1,0 +1,5 @@
+{
+  "all_state_tensors_bitwise_equal": true,
+  "tensor_count": 396,
+  "source_run": "tinyvit_videolightformer_f0_s0"
+}

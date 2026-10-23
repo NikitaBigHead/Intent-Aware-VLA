@@ -1,0 +1,83 @@
+# Base config. Switch modules with one line, e.g.
+#   --set model.encoder.name=mobilevit model.temporal.name=videolightformer
+# T (num_frames) and img_size are shared by ALL combinations for a fair comparison.
+# img_size must stay 224: EfficientFormer-L1 only accepts 224x224.
+
+experiment:
+  name: tinyvit_vtn
+  out_dir: runs
+  seed: 0
+
+data:
+  index: data/frames/index.csv     # produced by scripts/extract_frames.py (format in README)
+  root: data/frames
+  views: [head, ego]               # RGB streams; order matters for the fusion module
+  classes: [no_interaction, hug, handshake, fist_bump]
+  fps: 15                          # frame rate of the extracted frames (= live inference rate)
+  num_frames: 16                   # T: 16 frames @ 15 fps = ~1.07 s of history
+  frame_stride: 1                  # take every k-th extracted frame inside a clip
+  img_size: 224
+  pre_onset_policy: ignore         # ignore | label | no_interaction : action label before t_onset
+  train_window_step: 2             # stride (frames) between training window ends
+  num_workers: 8
+
+split:
+  mode: auto                       # auto: use `split` column if present, else group k-fold by person_id
+  n_folds: 5
+  fold: 0                          # test = fold k persons, val = fold k+1, train = the rest
+
+model:
+  encoder:
+    name: tinyvit                  # tinyvit | mobilevit | efficientformer | timm
+    pretrained: true
+    freeze: true                   # first experiment: frozen encoder
+    share_across_views: true
+    presets:
+      tinyvit:         {variant: tiny_vit_5m_224.dist_in22k_ft_in1k}
+      mobilevit:       {variant: mobilevit_s.cvnets_in1k}
+      efficientformer: {variant: efficientformer_l1.snap_dist_in1k}
+  temporal:
+    name: vtn                      # vtn | videolightformer
+    share_across_views: false
+    params: {}                     # overrides for the selected preset
+    presets:
+      vtn:              {d_model: 256, depth: 2, heads: 4, mlp_ratio: 2.0, dropout: 0.1, causal: true, pool: last, feat_norm: ln}
+      videolightformer: {d_model: 128, spatial_depth: 1, temporal_depth: 2, heads: 4, mlp_ratio: 2.0,
+                         dropout: 0.1, causal: true, pool: last, spatial_grid: null,
+                         feat_norm: ln}   # ln | bn
+  fusion: {name: attention, dim: 256, heads: 4, dropout: 0.1}   # attention | concat | mean
+  heads: {action: 4, phase: 3}     # phase: 0 before onset, 1 approach, 2 contact+  (auxiliary)
+  dropout: 0.2
+
+train:
+  epochs: 30
+  batch_size: 16
+  lr: 3.0e-4
+  weight_decay: 0.05
+  warmup_epochs: 1
+  label_smoothing: 0.05
+  class_weights: true
+  phase_loss_weight: 0.3
+  view_dropout: 0.15               # drop a whole camera during training (never all of them)
+  amp: true
+  grad_clip: 1.0
+  device: cuda
+  aug: {crop_scale: [0.8, 1.0], brightness: 0.2, contrast: 0.2}
+  max_steps_per_epoch: null
+
+eval:
+  threshold: 0.6                   # commit when p(class) >= threshold ...
+  consecutive: 3                   # ... for K consecutive steps
+  ttc_offsets: [2.0, 1.5, 1.0, 0.5, 0.0]     # seconds before contact
+  progress_points: [0.0, 0.25, 0.5, 0.75, 1.0]  # onset -> contact
+  bootstrap: 1000
+  batch_size: 64
+
+benchmark:
+  encoders: [tinyvit, mobilevit, efficientformer]
+  temporals: [vtn, videolightformer]
+  batch_sizes: [8]                 # throughput batch (clips); batch 1 is always measured
+  warmup: 20
+  iters: 100
+  amp: true
+  device: cuda

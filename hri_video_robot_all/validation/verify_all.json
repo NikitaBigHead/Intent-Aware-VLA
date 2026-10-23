@@ -1,0 +1,194 @@
+[
+  {
+    "ok": true,
+    "device": "cpu",
+    "amp": false,
+    "max_live_offline_error": 1.9669532775878906e-06,
+    "tolerance": 0.0001,
+    "frames": 20,
+    "classes": [
+      "no_interaction",
+      "hug",
+      "handshake",
+      "fist_bump"
+    ],
+    "torch": "2.7.0+cu128",
+    "model": "efficientformer_videolightformer"
+  },
+  {
+    "ok": true,
+    "device": "cpu",
+    "amp": false,
+    "max_live_offline_error": 1.1920928955078125e-07,
+    "tolerance": 0.0001,
+    "frames": 20,
+    "classes": [
+      "no_interaction",
+      "hug",
+      "handshake",
+      "fist_bump"
+    ],
+    "torch": "2.7.0+cu128",
+    "model": "efficientformer_vtn"
+  },
+  {
+    "ok": true,
+    "device": "cpu",
+    "amp": false,
+    "max_live_offline_error": 1.9371509552001953e-07,
+    "tolerance": 0.0001,
+    "frames": 20,
+    "classes": [
+      "no_interaction",
+      "hug",
+      "handshake",
+      "fist_bump"
+    ],
+    "torch": "2.7.0+cu128",
+    "model": "mobilevit_videolightformer"
+  },
+  {
+    "ok": true,
+    "device": "cpu",
+    "amp": false,
+    "max_live_offline_error": 1.7881393432617188e-07,
+    "tolerance": 0.0001,
+    "frames": 20,
+    "classes": [
+      "no_interaction",
+      "hug",
+      "handshake",
+      "fist_bump"
+    ],
+    "torch": "2.7.0+cu128",
+    "model": "mobilevit_vtn"
+  },
+  {
+    "ok": true,
+    "device": "cpu",
+    "amp": false,
+    "max_live_offline_error": 1.1920928955078125e-07,
+    "tolerance": 0.0001,
+    "frames": 20,
+    "classes": [
+      "no_interaction",
+      "hug",
+      "handshake",
+      "fist_bump"
+    ],
+    "torch": "2.7.0+cu128",
+    "model": "tinyvit_videolightformer"
+  },
+  {
+    "ok": true,
+    "device": "cpu",
+    "amp": false,
+    "max_live_offline_error": 4.3213367462158203e-07,
+    "tolerance": 0.0001,
+    "frames": 20,
+    "classes": [
+      "no_interaction",
+      "hug",
+      "handshake",
+      "fist_bump"
+    ],
+    "torch": "2.7.0+cu128",
+    "model": "tinyvit_vtn"
+  },
+  {
+    "ok": true,
+    "device": "cuda",
+    "amp": true,
+    "max_live_offline_error": 0.0013203024864196777,
+    "tolerance": 0.005,
+    "frames": 20,
+    "classes": [
+      "no_interaction",
+      "hug",
+      "handshake",
+      "fist_bump"
+    ],
+    "torch": "2.7.0+cu128",
+    "model": "efficientformer_videolightformer"
+  },
+  {
+    "ok": true,
+    "device": "cuda",
+    "amp": true,
+    "max_live_offline_error": 0.0002470351755619049,
+    "tolerance": 0.005,
+    "frames": 20,
+    "classes": [
+      "no_interaction",
+      "hug",
+      "handshake",
+      "fist_bump"
+    ],
+    "torch": "2.7.0+cu128",
+    "model": "efficientformer_vtn"
+  },
+  {
+    "ok": true,
+    "device": "cuda",
+    "amp": true,
+    "max_live_offline_error": 0.00026911497116088867,
+    "tolerance": 0.005,
+    "frames": 20,
+    "classes": [
+      "no_interaction",
+      "hug",
+      "handshake",
+      "fist_bump"
+    ],
+    "torch": "2.7.0+cu128",
+    "model": "mobilevit_videolightformer"
+  },
+  {
+    "ok": true,
+    "device": "cuda",
+    "amp": true,
+    "max_live_offline_error": 0.00012892484664916992,
+    "tolerance": 0.005,
+    "frames": 20,
+    "classes": [
+      "no_interaction",
+      "hug",
+      "handshake",
+      "fist_bump"
+    ],
+    "torch": "2.7.0+cu128",
+    "model": "mobilevit_vtn"
+  },
+  {
+    "ok": true,
+    "device": "cuda",
+    "amp": true,
+    "max_live_offline_error": 0.00013190507888793945,
+    "tolerance": 0.005,
+    "frames": 20,
+    "classes": [
+      "no_interaction",
+      "hug",
+      "handshake",
+      "fist_bump"
+    ],
+    "torch": "2.7.0+cu128",
+    "model": "tinyvit_videolightformer"
+  },
+  {
+    "ok": true,
+    "device": "cuda",
+    "amp": true,
+    "max_live_offline_error": 0.0003921985626220703,
+    "tolerance": 0.005,
+    "frames": 20,
+    "classes": [
+      "no_interaction",
+      "hug",
+      "handshake",
+      "fist_bump"
+    ],
+    "torch": "2.7.0+cu128",
+    "model": "tinyvit_vtn"
+  }
+]

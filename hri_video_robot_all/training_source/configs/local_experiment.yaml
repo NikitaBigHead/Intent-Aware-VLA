@@ -1,0 +1,124 @@
+experiment:
+  name: tinyvit_vtn_f0_s0
+  out_dir: /workspace/hri_mvp_experiment/runs
+  seed: 0
+data:
+  index: /workspace/hri_mvp_experiment/frames/index.csv
+  root: /workspace/hri_mvp_experiment/frames
+  views:
+  - head
+  - ego
+  classes:
+  - no_interaction
+  - hug
+  - handshake
+  - fist_bump
+  fps: 15
+  num_frames: 16
+  frame_stride: 1
+  img_size: 224
+  pre_onset_policy: ignore
+  train_window_step: 2
+  num_workers: 4
+split:
+  mode: column
+  n_folds: 5
+  fold: 0
+model:
+  encoder:
+    name: tinyvit
+    pretrained: true
+    freeze: true
+    share_across_views: true
+    presets:
+      tinyvit:
+        variant: tiny_vit_5m_224.dist_in22k_ft_in1k
+      mobilevit:
+        variant: mobilevit_s.cvnets_in1k
+      efficientformer:
+        variant: efficientformer_l1.snap_dist_in1k
+  temporal:
+    name: vtn
+    share_across_views: false
+    params: {}
+    presets:
+      vtn:
+        d_model: 256
+        depth: 2
+        heads: 4
+        mlp_ratio: 2.0
+        dropout: 0.1
+        causal: true
+        pool: last
+        feat_norm: ln
+      videolightformer:
+        d_model: 128
+        spatial_depth: 1
+        temporal_depth: 2
+        heads: 4
+        mlp_ratio: 2.0
+        dropout: 0.1
+        causal: true
+        pool: last
+        spatial_grid: null
+        feat_norm: ln
+  fusion:
+    name: attention
+    dim: 256
+    heads: 4
+    dropout: 0.1
+  heads:
+    action: 4
+    phase: 3
+  dropout: 0.2
+train:
+  epochs: 15
+  batch_size: 16
+  lr: 0.0003
+  weight_decay: 0.05
+  warmup_epochs: 1
+  label_smoothing: 0.05
+  class_weights: true
+  phase_loss_weight: 0.3
+  view_dropout: 0.15
+  amp: true
+  grad_clip: 1.0
+  device: cuda
+  aug:
+    crop_scale:
+    - 0.8
+    - 1.0
+    brightness: 0.2
+    contrast: 0.2
+  max_steps_per_epoch: null
+eval:
+  threshold: 0.6
+  consecutive: 3
+  ttc_offsets:
+  - 2.0
+  - 1.5
+  - 1.0
+  - 0.5
+  - 0.0
+  progress_points:
+  - 0.0
+  - 0.25
+  - 0.5
+  - 0.75
+  - 1.0
+  bootstrap: 1000
+  batch_size: 64
+benchmark:
+  encoders:
+  - tinyvit
+  - mobilevit
+  - efficientformer
+  temporals:
+  - vtn
+  - videolightformer
+  batch_sizes:
+  - 8
+  warmup: 20
+  iters: 100
+  amp: true
+  device: cuda

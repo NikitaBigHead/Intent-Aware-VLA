@@ -1,0 +1,35 @@
+[
+ {
+  "episode_index": 105,
+  "person": "subject_05",
+  "action": "handshake",
+  "windows": 26,
+  "original_majority": "handshake",
+  "original_accepted": 24,
+  "threshold": 0.4,
+  "source_checkpoint_sha256": "2cb87c679651562e5459676cdbc108a78463934fa029d657619ec47c7dea096e",
+  "source_dataset_sha256": "8dd1b092895d1e54da5fcbe864366486419b8218d1999f3e5f309760f6088bf3"
+ },
+ {
+  "episode_index": 355,
+  "person": "subject_13",
+  "action": "hug",
+  "windows": 38,
+  "original_majority": "hug",
+  "original_accepted": 18,
+  "threshold": 0.4,
+  "source_checkpoint_sha256": "2cb87c679651562e5459676cdbc108a78463934fa029d657619ec47c7dea096e",
+  "source_dataset_sha256": "8dd1b092895d1e54da5fcbe864366486419b8218d1999f3e5f309760f6088bf3"
+ },
+ {
+  "episode_index": 72,
+  "person": "subject_05",
+  "action": "fist_bump",
+  "windows": 17,
+  "original_majority": "no_interaction",
+  "original_accepted": 16,
+  "threshold": 0.4,
+  "source_checkpoint_sha256": "2cb87c679651562e5459676cdbc108a78463934fa029d657619ec47c7dea096e",
+  "source_dataset_sha256": "8dd1b092895d1e54da5fcbe864366486419b8218d1999f3e5f309760f6088bf3"
+ }
+]

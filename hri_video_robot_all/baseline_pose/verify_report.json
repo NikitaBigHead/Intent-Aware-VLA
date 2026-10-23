@@ -1,0 +1,80 @@
+{
+ "device": "cuda",
+ "report": [
+  {
+   "episode": 72,
+   "action": "fist_bump",
+   "windows": 17,
+   "original_majority": "no_interaction",
+   "saved_poses": {
+    "matched_windows": 17,
+    "max_abs_diff_x_person": 8.881784197001252e-16,
+    "max_abs_diff_x_hand": 8.881784197001252e-16,
+    "max_abs_diff_probability": 3.725290298461914e-08,
+    "same_label_windows": 17,
+    "same_reason_windows": 17,
+    "majority": "no_interaction"
+   },
+   "videos_rtmw3d_now": {
+    "matched_windows": 17,
+    "max_abs_diff_x_person": 1.796875,
+    "max_abs_diff_x_hand": 8.881784197001252e-16,
+    "max_abs_diff_probability": 0.0014178156852722168,
+    "same_label_windows": 17,
+    "same_reason_windows": 17,
+    "majority": "no_interaction",
+    "pose_ms_both_cameras_median": 34.22611199948733
+   }
+  },
+  {
+   "episode": 105,
+   "action": "handshake",
+   "windows": 26,
+   "original_majority": "handshake",
+   "saved_poses": {
+    "matched_windows": 26,
+    "max_abs_diff_x_person": 1.7763568394002505e-15,
+    "max_abs_diff_x_hand": 1.7763568394002505e-15,
+    "max_abs_diff_probability": 5.960464477539063e-08,
+    "same_label_windows": 26,
+    "same_reason_windows": 26,
+    "majority": "handshake"
+   },
+   "videos_rtmw3d_now": {
+    "matched_windows": 26,
+    "max_abs_diff_x_person": 2.395833969116211,
+    "max_abs_diff_x_hand": 1.7763568394002505e-15,
+    "max_abs_diff_probability": 0.02259349822998047,
+    "same_label_windows": 26,
+    "same_reason_windows": 26,
+    "majority": "handshake",
+    "pose_ms_both_cameras_median": 33.2089570001699
+   }
+  },
+  {
+   "episode": 355,
+   "action": "hug",
+   "windows": 38,
+   "original_majority": "hug",
+   "saved_poses": {
+    "matched_windows": 38,
+    "max_abs_diff_x_person": 1.7763568394002505e-15,
+    "max_abs_diff_x_hand": 1.7763568394002505e-15,
+    "max_abs_diff_probability": 1.1920928955078125e-07,
+    "same_label_windows": 38,
+    "same_reason_windows": 38,
+    "majority": "hug"
+   },
+   "videos_rtmw3d_now": {
+    "matched_windows": 38,
+    "max_abs_diff_x_person": 1.7960882186889648,
+    "max_abs_diff_x_hand": 1.7763568394002505e-15,
+    "max_abs_diff_probability": 0.0012176036834716797,
+    "same_label_windows": 38,
+    "same_reason_windows": 38,
+    "majority": "hug",
+    "pose_ms_both_cameras_median": 33.130775000245194
+   }
+  }
+ ]
+}

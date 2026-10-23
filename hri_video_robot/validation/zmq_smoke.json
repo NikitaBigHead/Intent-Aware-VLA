@@ -1,0 +1,17 @@
+[
+  {
+    "encoding": "b64",
+    "predictions": 10,
+    "ok": true
+  },
+  {
+    "encoding": "mjpeg",
+    "predictions": 10,
+    "ok": true
+  },
+  {
+    "encoding": "array",
+    "predictions": 10,
+    "ok": true
+  }
+]

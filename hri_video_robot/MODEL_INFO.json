@@ -1,0 +1,19 @@
+{
+  "model": "tinyvit + videolightformer",
+  "selection": "highest validation episode_macro_f1 among six candidates",
+  "checkpoint_epoch_zero_based": 8,
+  "source_run": "tinyvit_videolightformer_f0_s0",
+  "source_checkpoint_sha256": "7541efecb80168c92a904660e41260921fb0d02baa507e9c334801301f24eeb6",
+  "export_checkpoint_sha256": "61dd39a8c94c2c2dd70dab9bd7562bebeb7d28d1b8f919fe78dc5caa1e38e8af",
+  "classes": [
+    "no_interaction",
+    "hug",
+    "handshake",
+    "fist_bump"
+  ],
+  "fps": 15,
+  "num_frames": 16,
+  "img_size": 224,
+  "threshold": 0.6,
+  "consecutive": 3
+}

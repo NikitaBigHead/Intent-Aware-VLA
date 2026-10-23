@@ -1,0 +1,78 @@
+model:
+  encoder:
+    name: efficientformer
+    pretrained: false
+    freeze: true
+    share_across_views: true
+    presets:
+      tinyvit:
+        variant: tiny_vit_5m_224.dist_in22k_ft_in1k
+      mobilevit:
+        variant: mobilevit_s.cvnets_in1k
+      efficientformer:
+        variant: efficientformer_l1.snap_dist_in1k
+  temporal:
+    name: vtn
+    share_across_views: false
+    params: {}
+    presets:
+      vtn:
+        d_model: 256
+        depth: 2
+        heads: 4
+        mlp_ratio: 2.0
+        dropout: 0.1
+        causal: true
+        pool: last
+        feat_norm: ln
+      videolightformer:
+        d_model: 128
+        spatial_depth: 1
+        temporal_depth: 2
+        heads: 4
+        mlp_ratio: 2.0
+        dropout: 0.1
+        causal: true
+        pool: last
+        spatial_grid: null
+        feat_norm: ln
+  fusion:
+    name: attention
+    dim: 256
+    heads: 4
+    dropout: 0.1
+  heads:
+    action: 4
+    phase: 3
+  dropout: 0.2
+eval:
+  threshold: 0.6
+  consecutive: 3
+  ttc_offsets:
+  - 2.0
+  - 1.5
+  - 1.0
+  - 0.5
+  - 0.0
+  progress_points:
+  - 0.0
+  - 0.25
+  - 0.5
+  - 0.75
+  - 1.0
+  bootstrap: 1000
+  batch_size: 64
+data:
+  views:
+  - head
+  - ego
+  classes:
+  - no_interaction
+  - hug
+  - handshake
+  - fist_bump
+  fps: 15
+  num_frames: 16
+  frame_stride: 1
+  img_size: 224
+  pre_onset_policy: ignore

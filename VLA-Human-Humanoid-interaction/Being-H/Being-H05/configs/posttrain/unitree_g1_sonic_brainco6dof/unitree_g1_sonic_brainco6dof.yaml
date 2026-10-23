@@ -1,0 +1,91 @@
+# Copyright (c) 2026 BeingBeyond Ltd. and/or its affiliates.
+# SPDX-License-Identifier: Apache-2.0
+#
+# Single-embodiment post-train config for the Unitree G1 + BrainCo Revo2
+# (6-DOF hand) SONIC motion-token dataset ("sep-10-2026-cleaned-merged").
+# Structured like configs/posttrain/libero/libero_all.yaml (single
+# embodiment, one dataset), NOT like configs/posttrain/cross-embodiment/
+# libero_robocasa.yaml (that one mixes multiple embodiments/datasets in one
+# run, which this recipe does not need -- 535 episodes of one embodiment).
+#
+# The top-level key ("g1_sonic_brainco6dof_posttrain") must match a key in
+# BOTH configs/dataset_info.py's DATASET_REGISTRY (dataset class) and
+# DATASET_INFO (dataset path(s)) -- see BeingH/dataset/base_dataset.py
+# PackedDataset.build_datasets(), which indexes both dicts by this exact
+# grouped_dataset_name.
+g1_sonic_brainco6dof_posttrain:
+  dataset_names:
+  # Single sub-dataset entry -- must match the key under
+  # DATASET_INFO['g1_sonic_brainco6dof_posttrain'] in configs/dataset_info.py,
+  # whose 'dataset_path' is read from the required DATASET_PATH env var (the
+  # real dataset isn't on this machine and isn't at a fixed path across
+  # machines, unlike every other entry in that file).
+  - g1_sonic_brainco6dof
+
+  data_config_names:
+  # Must match the DATA_CONFIG_MAP key registered in configs/data_config.py
+  # for UnitreeG1SonicBrainco6DofDataConfig.
+  - "g1_sonic_brainco6dof"
+
+  embodiment_tags:
+  # Must match BeingH.utils.constants.EmbodimentTag.UNITREE_G1_SONIC_BRAINCO6DOF.value
+  - "unitree_g1_sonic_brainco6dof"
+
+  # 'step': sample individual (state, action-chunk) steps across the whole
+  # dataset rather than whole trajectories -- matches every other example
+  # config in this repo (libero_all.yaml, libero_robocasa.yaml) and is the
+  # natural choice for a flat 182k-frame corpus with no notion of curriculum
+  # over full episodes.
+  sampling_strategy: "step"
+  video_backend: "torchvision_av"
+
+  # NOTE: `type` below is NOT actually consulted by
+  # BeingH/dataset/preprocess.py::build_vit_transform_base (that function's
+  # parameter is named `transform_type`, not `type`, so this key is silently
+  # absorbed into **kwargs and ignored -- see the PATCH comment in
+  # preprocess.py). Kept here anyway for consistency with every other
+  # example YAML in this repo (which all set the same inert key), so a
+  # future fix to that mismatch doesn't silently change this recipe's
+  # augmentation out from under it. The augmentation that ACTUALLY applies
+  # (the "default" transform_type branch) is controlled by the two
+  # patched-in keys below (crop_scale_min, random_rotation_degrees) plus
+  # this repo's own hardcoded ColorJitter(0.3, 0.4, 0.5, 0.08), which
+  # already exactly matches this recipe's required brightness/contrast/
+  # saturation/hue values -- so no ColorJitter override was needed.
+  vit_transform_args:
+    type: "beingh"
+    normalize_type: "imagenet"
+    use_color_jitter: true
+    # RandomResizedCrop scale lower bound. Repo default is 0.95; this
+    # recipe calls for (0.85, 1.0) -- see preprocess.py patch. ratio stays
+    # fixed at (1.0, 1.0) in that function (not overridable), which is what
+    # keeps this "without aggressive aspect-ratio distortion" as required.
+    crop_scale_min: 0.85
+    # +/-8 degree random rotation, applied before the crop above. There is
+    # no horizontal-flip stage anywhere in build_vit_transform_base, so
+    # left/right hand semantics (separate left_hand_joints/right_hand_joints
+    # action dims) are preserved by construction, not by a flag.
+    random_rotation_degrees: 8
+    # Optional light gaussian blur/noise (mentioned in the recipe as a
+    # nice-to-have) was deliberately NOT added: BeingH/dataset/preprocess.py
+    # has no ready-made blur/noise transform to opt into, and the task asked
+    # not to build one from scratch just for this. Skipped, not forgotten.
+
+  frame_step_size:
+  - 1
+
+  num_used_episodes_per_task:
+  - -1
+
+  num_used_episodes_per_dataset:
+  # -1 = use all 535 episodes. No validation split: this recipe trains on
+  # 535/535 episodes and monitors train-loss only (see the launch script
+  # and README section for how that's reflected in the training args --
+  # BeingH/train/train.py has no --eval_strategy/held-out-split mechanism
+  # to disable in the first place, so there is nothing to turn off here).
+  - -1
+
+  num_used_frames_per_dataset:
+  - -1
+
+  weight: 1

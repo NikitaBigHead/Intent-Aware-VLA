@@ -1,0 +1,54 @@
+[
+ {
+  "episode_index": 120,
+  "dataset": "datasets/test-dataset",
+  "person": "subject_11",
+  "action": "hug",
+  "windows": 53,
+  "original_majority": "hug",
+  "original_episode_decision": "hug",
+  "original_accepted": 20,
+  "threshold": 0.25,
+  "source_checkpoint_sha256": "ceff2c19206fec5bea3ff1c1bcba6fd0567e232ac02c7d4b3cba630f81cf2fcc",
+  "source_dataset_sha256": "fbf1d74183d2ca0a2185c8ab9e3d8147ed9dfc36cecffd162fbb13b92fd4f6a2"
+ },
+ {
+  "episode_index": 186,
+  "dataset": "datasets/test-dataset",
+  "person": "subject_14",
+  "action": "handshake",
+  "windows": 39,
+  "original_majority": "handshake",
+  "original_episode_decision": "handshake",
+  "original_accepted": 36,
+  "threshold": 0.25,
+  "source_checkpoint_sha256": "ceff2c19206fec5bea3ff1c1bcba6fd0567e232ac02c7d4b3cba630f81cf2fcc",
+  "source_dataset_sha256": "fbf1d74183d2ca0a2185c8ab9e3d8147ed9dfc36cecffd162fbb13b92fd4f6a2"
+ },
+ {
+  "episode_index": 18,
+  "dataset": "datasets/test-dataset",
+  "person": "subject_07",
+  "action": "fist_bump",
+  "windows": 33,
+  "original_majority": "fist_bump",
+  "original_episode_decision": "fist_bump",
+  "original_accepted": 28,
+  "threshold": 0.25,
+  "source_checkpoint_sha256": "ceff2c19206fec5bea3ff1c1bcba6fd0567e232ac02c7d4b3cba630f81cf2fcc",
+  "source_dataset_sha256": "fbf1d74183d2ca0a2185c8ab9e3d8147ed9dfc36cecffd162fbb13b92fd4f6a2"
+ },
+ {
+  "episode_index": 235,
+  "dataset": "datasets/test-dataset",
+  "person": "subject_18",
+  "action": "handshake",
+  "windows": 18,
+  "original_majority": "fist_bump",
+  "original_episode_decision": "fist_bump",
+  "original_accepted": 15,
+  "threshold": 0.25,
+  "source_checkpoint_sha256": "ceff2c19206fec5bea3ff1c1bcba6fd0567e232ac02c7d4b3cba630f81cf2fcc",
+  "source_dataset_sha256": "fbf1d74183d2ca0a2185c8ab9e3d8147ed9dfc36cecffd162fbb13b92fd4f6a2"
+ }
+]

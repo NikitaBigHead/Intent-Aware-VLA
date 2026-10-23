@@ -1,0 +1,204 @@
+{
+ "params": {
+  "params_encoder_M": 5.071764,
+  "params_temporal_M": 0.895488,
+  "params_fusion_heads_M": 0.299271,
+  "params_total_M": 6.266523,
+  "params_trainable_M": 1.194759
+ },
+ "best_epoch": 8,
+ "val": {
+  "n_episodes": 158,
+  "n_persons": 16,
+  "episode_macro_f1": 0.9930434782608695,
+  "episode_f1_per_class": {
+   "no_interaction": 1.0,
+   "hug": 0.9866666666666666,
+   "handshake": 0.9855072463768115,
+   "fist_bump": 1.0
+  },
+  "episode_confusion": [
+   [
+    54,
+    0,
+    0,
+    0
+   ],
+   [
+    0,
+    37,
+    1,
+    0
+   ],
+   [
+    0,
+    0,
+    34,
+    0
+   ],
+   [
+    0,
+    0,
+    0,
+    32
+   ]
+  ],
+  "pre_contact_correct_rate": 0.9903846153846154,
+  "commit_before_onset_rate": 0.7692307692307693,
+  "pre_contact_correct_after_onset_rate": 0.23076923076923078,
+  "lead_time_median_s": 2.126666666666667,
+  "false_alarm_episode_rate": 0.0,
+  "false_alarms_per_min": 0.0,
+  "window_macro_f1": 0.9957310797641598,
+  "acc_vs_time_to_contact": {
+   "-2s": {
+    "argmax_acc": 0.9594594594594594,
+    "committed_correct": 0.8378378378378378,
+    "n": 74
+   },
+   "-1.5s": {
+    "argmax_acc": 0.9294117647058824,
+    "committed_correct": 0.9058823529411765,
+    "n": 85
+   },
+   "-1s": {
+    "argmax_acc": 0.99,
+    "committed_correct": 0.95,
+    "n": 100
+   },
+   "-0.5s": {
+    "argmax_acc": 1.0,
+    "committed_correct": 0.9807692307692307,
+    "n": 104
+   },
+   "-0s": {
+    "argmax_acc": 1.0,
+    "committed_correct": 0.9903846153846154,
+    "n": 104
+   }
+  },
+  "acc_vs_progress": {
+   "0": {
+    "argmax_acc": 0.9230769230769231,
+    "n": 104
+   },
+   "0.25": {
+    "argmax_acc": 0.9807692307692307,
+    "n": 104
+   },
+   "0.5": {
+    "argmax_acc": 1.0,
+    "n": 104
+   },
+   "0.75": {
+    "argmax_acc": 1.0,
+    "n": 104
+   },
+   "1": {
+    "argmax_acc": 1.0,
+    "n": 104
+   }
+  },
+  "episode_macro_f1_ci95": [
+   0.75,
+   1.0
+  ]
+ },
+ "test": {
+  "n_episodes": 288,
+  "n_persons": 4,
+  "episode_macro_f1": 0.5675635591177728,
+  "episode_f1_per_class": {
+   "no_interaction": 0.0,
+   "hug": 0.7975460122699387,
+   "handshake": 0.6987951807228917,
+   "fist_bump": 0.7739130434782608
+  },
+  "episode_confusion": [
+   [
+    0,
+    0,
+    0,
+    0
+   ],
+   [
+    4,
+    65,
+    9,
+    14
+   ],
+   [
+    7,
+    4,
+    58,
+    26
+   ],
+   [
+    6,
+    2,
+    4,
+    89
+   ]
+  ],
+  "pre_contact_correct_rate": NaN,
+  "commit_before_onset_rate": NaN,
+  "pre_contact_correct_after_onset_rate": NaN,
+  "lead_time_median_s": NaN,
+  "false_alarm_episode_rate": NaN,
+  "false_alarms_per_min": NaN,
+  "window_macro_f1": 0.5579214779688358,
+  "acc_vs_time_to_contact": {
+   "-2s": {
+    "argmax_acc": NaN,
+    "committed_correct": NaN,
+    "n": 0
+   },
+   "-1.5s": {
+    "argmax_acc": NaN,
+    "committed_correct": NaN,
+    "n": 0
+   },
+   "-1s": {
+    "argmax_acc": NaN,
+    "committed_correct": NaN,
+    "n": 0
+   },
+   "-0.5s": {
+    "argmax_acc": NaN,
+    "committed_correct": NaN,
+    "n": 0
+   },
+   "-0s": {
+    "argmax_acc": NaN,
+    "committed_correct": NaN,
+    "n": 0
+   }
+  },
+  "acc_vs_progress": {
+   "0": {
+    "argmax_acc": NaN,
+    "n": 0
+   },
+   "0.25": {
+    "argmax_acc": NaN,
+    "n": 0
+   },
+   "0.5": {
+    "argmax_acc": NaN,
+    "n": 0
+   },
+   "0.75": {
+    "argmax_acc": NaN,
+    "n": 0
+   },
+   "1": {
+    "argmax_acc": NaN,
+    "n": 0
+   }
+  },
+  "episode_macro_f1_ci95": [
+   0.509323788166293,
+   0.6613095238095238
+  ]
+ }
+}

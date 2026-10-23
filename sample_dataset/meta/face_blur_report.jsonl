@@ -1,0 +1,9 @@
+{"frames":194,"frames_with_blur":0,"face_detections":0,"face_score_threshold":0.85,"episode_index":0,"source_episode_index":14,"video":"videos/chunk-000/observation.images.depth_camera_rgb/episode_000014.mp4"}
+{"frames":194,"frames_with_blur":194,"face_detections":457,"face_score_threshold":0.45,"episode_index":0,"source_episode_index":14,"video":"videos/chunk-000/observation.images.external_view_camera/episode_000014.mp4"}
+{"frames":194,"frames_with_blur":194,"face_detections":0,"face_score_threshold":0.45,"episode_index":0,"source_episode_index":14,"video":"videos/chunk-000/observation.images.webcam/episode_000014.mp4"}
+{"frames":178,"frames_with_blur":0,"face_detections":0,"face_score_threshold":0.85,"episode_index":1,"source_episode_index":248,"video":"videos/chunk-000/observation.images.depth_camera_rgb/episode_000248.mp4"}
+{"frames":178,"frames_with_blur":178,"face_detections":185,"face_score_threshold":0.45,"episode_index":1,"source_episode_index":248,"video":"videos/chunk-000/observation.images.external_view_camera/episode_000248.mp4"}
+{"frames":178,"frames_with_blur":178,"face_detections":10,"face_score_threshold":0.45,"episode_index":1,"source_episode_index":248,"video":"videos/chunk-000/observation.images.webcam/episode_000248.mp4"}
+{"frames":454,"frames_with_blur":0,"face_detections":0,"face_score_threshold":0.85,"episode_index":2,"source_episode_index":201,"video":"videos/chunk-000/observation.images.depth_camera_rgb/episode_000201.mp4"}
+{"frames":454,"frames_with_blur":454,"face_detections":463,"face_score_threshold":0.45,"episode_index":2,"source_episode_index":201,"video":"videos/chunk-000/observation.images.external_view_camera/episode_000201.mp4"}
+{"frames":454,"frames_with_blur":454,"face_detections":231,"face_score_threshold":0.45,"episode_index":2,"source_episode_index":201,"video":"videos/chunk-000/observation.images.webcam/episode_000201.mp4"}

@@ -1,0 +1,9 @@
+# Python 3.10. Versions of the lab machine where the model was trained and verified.
+# torch: install first. NVIDIA GPU -> CUDA 12 wheel (lab: 2.5.1+cu124); Mac/CPU -> `pip install torch`.
+numpy==1.23.5
+opencv-python==4.10.0.84
+tqdm==4.66.5
+onnxruntime-gpu==1.20.2      # Mac / CPU-only machine: replace with onnxruntime==1.20.1
+pyzmq==27.2.0                # robot camera server client
+msgpack==1.2.3
+msgpack-numpy==0.4.8

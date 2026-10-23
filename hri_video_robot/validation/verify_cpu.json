@@ -1,0 +1,15 @@
+{
+  "ok": true,
+  "device": "cpu",
+  "amp": false,
+  "max_live_offline_error": 1.1920928955078125e-07,
+  "tolerance": 0.0001,
+  "frames": 20,
+  "classes": [
+    "no_interaction",
+    "hug",
+    "handshake",
+    "fist_bump"
+  ],
+  "torch": "2.7.0+cu128"
+}

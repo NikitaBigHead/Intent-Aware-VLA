@@ -1,0 +1,56 @@
+{
+  "efficientformer_videolightformer": {
+    "run": "efficientformer_videolightformer_f0_s0",
+    "epoch_zero_based": 13,
+    "weights": "models/efficientformer_videolightformer/model.pt",
+    "config": "models/efficientformer_videolightformer/config.yaml",
+    "original_checkpoint": "training_runs/efficientformer_videolightformer_f0_s0/best.pt",
+    "original_sha256": "7a249600a9d2806614cf28b4c54596aa8b6832f6678a672a19476588939e1d77",
+    "all_exported_tensors_equal": true
+  },
+  "efficientformer_vtn": {
+    "run": "efficientformer_vtn_f0_s0",
+    "epoch_zero_based": 5,
+    "weights": "models/efficientformer_vtn/model.pt",
+    "config": "models/efficientformer_vtn/config.yaml",
+    "original_checkpoint": "training_runs/efficientformer_vtn_f0_s0/best.pt",
+    "original_sha256": "1576d8283f303e8202667b38159bf42a0d317d3ea8b3daa6e5b153cacfde4b26",
+    "all_exported_tensors_equal": true
+  },
+  "mobilevit_videolightformer": {
+    "run": "mobilevit_videolightformer_f0_s0",
+    "epoch_zero_based": 8,
+    "weights": "models/mobilevit_videolightformer/model.pt",
+    "config": "models/mobilevit_videolightformer/config.yaml",
+    "original_checkpoint": "training_runs/mobilevit_videolightformer_f0_s0/best.pt",
+    "original_sha256": "e4932031778a8f70892c3936c32573d60a8d90e7dd57761e03fb484b5372ec58",
+    "all_exported_tensors_equal": true
+  },
+  "mobilevit_vtn": {
+    "run": "mobilevit_vtn_f0_s0",
+    "epoch_zero_based": 9,
+    "weights": "models/mobilevit_vtn/model.pt",
+    "config": "models/mobilevit_vtn/config.yaml",
+    "original_checkpoint": "training_runs/mobilevit_vtn_f0_s0/best.pt",
+    "original_sha256": "d9af523c9c1f3b304c0c338b0305875fd4c4335a1b63b5b7071adc97eb37b7cc",
+    "all_exported_tensors_equal": true
+  },
+  "tinyvit_videolightformer": {
+    "run": "tinyvit_videolightformer_f0_s0",
+    "epoch_zero_based": 8,
+    "weights": "models/tinyvit_videolightformer/model.pt",
+    "config": "models/tinyvit_videolightformer/config.yaml",
+    "original_checkpoint": "training_runs/tinyvit_videolightformer_f0_s0/best.pt",
+    "original_sha256": "7541efecb80168c92a904660e41260921fb0d02baa507e9c334801301f24eeb6",
+    "all_exported_tensors_equal": true
+  },
+  "tinyvit_vtn": {
+    "run": "tinyvit_vtn_f0_s0",
+    "epoch_zero_based": 4,
+    "weights": "models/tinyvit_vtn/model.pt",
+    "config": "models/tinyvit_vtn/config.yaml",
+    "original_checkpoint": "training_runs/tinyvit_vtn_f0_s0/best.pt",
+    "original_sha256": "a22d97cad277a88f3f77ce320cd217a18f66915310edc88a19b68f3ff3e0fda8",
+    "all_exported_tensors_equal": true
+  }
+}
